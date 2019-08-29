@@ -14,21 +14,12 @@ class Quadratic:
             return ()
         elif q == 0:
             x1 = -b/(2*a)
-<<<<<<< HEAD
             return (x1,)
 
         else:
             qq = np.sqrt(q)
             x_1 = (-b - qq)/(2*a)
             x_2 = (-b + qq)/(2*a)
-=======
-            return(x1)
-
-        else:
-            qq = np.sqrt(q)
-            x_1 = (-b + qq)/(2*a)
-            x_2 = (-b - qq)/(2*a)
->>>>>>> 092e5428aefe99b7d12676788d9e35b045d04cef
             return(x_1,x_2)
 
 class Quadratic(Quadratic):
@@ -78,10 +69,6 @@ def test_Quadratic_root():
     f1 = Quadratic(2, -2, 2)
     f2 = Quadratic(1, -2, 1)
     f3 = Quadratic(1, -3, 2)
-<<<<<<< HEAD
-=======
-    print(f2.roots())
->>>>>>> 092e5428aefe99b7d12676788d9e35b045d04cef
     assert f1.roots() == ()
     assert abs(f2.roots()[0] - 1) < 1e-8
     assert abs(f3.roots()[0] - 1) < 1e-8 and abs(f3.roots()[1] - 2) < 1e-8
