@@ -7,6 +7,21 @@ class Quadratic:
         self.a_0 = a_0
         self.coeffs = self.a_2,self.a_1,self.a_0
 
+    def roots(self):
+        a,b,c = self.coeffs
+        q = b**2 -4*a*c
+        if q < 0:
+            return ()
+        elif q == 0:
+            x1 = -b/(2*a)
+            return(x1)
+
+        else:
+            qq = np.sqrt(q)
+            x_1 = (-b + qq)/(2*a)
+            x_2 = (-b - qq)/(2*a)
+            return(x_1,x_2)
+
 class Quadratic(Quadratic):
     def __call__(self,x):
         return self.a_2 * x**2 + self.a_1 *x + self.a_0
@@ -28,6 +43,7 @@ class Quadratic(Quadratic):
         a_0 = self.a_0 + other.a_0
         return Quadratic(a_2,a_1,a_0)
 
+
 def test_Quadratic():
     f = Quadratic(1, -2, 1)
     assert abs(f(-1) - 4) < 1e-8
@@ -48,3 +64,14 @@ def test_Quadratic_add():
     assert a0 == -2
 
 test_Quadratic_add()
+
+def test_Quadratic_root():
+    f1 = Quadratic(2, -2, 2)
+    f2 = Quadratic(1, -2, 1)
+    f3 = Quadratic(1, -3, 2)
+    print(f2.roots())
+    assert f1.roots() == ()
+    assert abs(f2.roots()[0] - 1) < 1e-8
+    assert abs(f3.roots()[0] - 1) < 1e-8 and abs(f3.roots()[1] - 2) < 1e-8
+
+test_Quadratic_root()
