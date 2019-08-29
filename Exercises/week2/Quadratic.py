@@ -107,7 +107,6 @@ if __name__ == "__main__":
         plt.show()
 
 
-
     test_Quadratic()
     test_Quadratic_add()
     test_Quadratic_root()
