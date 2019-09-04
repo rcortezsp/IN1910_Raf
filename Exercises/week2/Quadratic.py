@@ -66,7 +66,7 @@ if __name__ == "__main__":
         f = Quadratic(1, -2, 1)
         assert abs(f(-1) - 4) < 1e-8
         assert abs(f(0)  - 1) < 1e-8
-        assert abs(f(1)  - 0) < 1e-8
+        assert abs(f(1)  - 0) < 1e-9
 
 
 
